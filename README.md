@@ -67,7 +67,7 @@ You can enable IntelliSense for other tag names by configuring `"tags"`:
         "name": "typescript-nornj-plugin",
         "tags": [
           "html",
-          "template"
+          "nj"
         ]
       }
     ]
