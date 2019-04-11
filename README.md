@@ -66,15 +66,15 @@ You can enable IntelliSense for other tag names by configuring `"tags"`:
       {
         "name": "typescript-nornj-plugin",
         "tags": [
-          "html",
-          "nj"
+          "nj",
+          "njs",
+          "t"
         ]
       }
     ]
   }
 }
 ```
-
 
 ### Formatting
 The plugin formats html code by default. You can disable this by setting `"format.enabled": false`
