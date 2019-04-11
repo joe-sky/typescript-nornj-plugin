@@ -2,7 +2,7 @@ import { TextDocument, Range, TextEdit, Position } from 'vscode-languageserver-t
 import { repeat } from './utils/strings';
 import format from './format';
 
-const REGEX_EXTERNAL = /\$\{([^{}]*(\{[^$]*\})*[^{}]*)\}/g;
+const REGEX_EXTERNAL = /\$\{([^{}]*(\{[\s\S]*\})*[^{}]*)\}/g;
 const REGEX_EXTERNAL_CHAR = /_njEx(\d+)_/g;
 
 export function taggedTemplateFormat(document: TextDocument, range: Range | undefined, options: any): TextEdit[] {
