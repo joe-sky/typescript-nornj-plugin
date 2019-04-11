@@ -2,11 +2,16 @@ import { TextDocument, Range, TextEdit, Position } from 'vscode-languageserver-t
 import { repeat } from './utils/strings';
 import format from './format';
 
+const REGEX_EXTERNAL = /\$\{([^{}]*(\{[^$]*\})*[^{}]*)\}/g;
+const REGEX_EXTERNAL_CHAR = /_njEx(\d+)_/g;
+
 export function taggedTemplateFormat(document: TextDocument, range: Range | undefined, options: any): TextEdit[] {
   let value = document.getText();
   let includesEnd = true;
   let initialIndentLevel = 0;
   const tabSize = options.tabSize || 4;
+  const externals: string[] = [];
+
   if (range) {
     let startOffset = document.offsetAt(range.start);
 
@@ -77,6 +82,11 @@ export function taggedTemplateFormat(document: TextDocument, range: Range | unde
   //     eol: '\n'
   //   };
 
+  value = value.replace(REGEX_EXTERNAL, all => {
+    externals.push(all);
+    return '_njEx' + (externals.length - 1) + '_';
+  });
+
   let result = format(trimLeft(value));
   if (initialIndentLevel > 0) {
     const indent = options.insertSpaces ? repeat(' ', tabSize * initialIndentLevel) : repeat('\t', initialIndentLevel);
@@ -85,6 +95,8 @@ export function taggedTemplateFormat(document: TextDocument, range: Range | unde
       result = indent + result; // keep the indent
     }
   }
+  result = result.replace(REGEX_EXTERNAL_CHAR, (all, g1) => externals[g1]);
+
   return [
     {
       range: range,
