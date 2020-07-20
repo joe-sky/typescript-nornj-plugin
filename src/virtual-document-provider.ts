@@ -3,7 +3,7 @@
 import { TemplateContext } from 'typescript-template-language-service-decorator';
 import * as vscode from 'vscode-languageserver-types';
 import { VirtualDocumentProvider as StyledVirtualDocumentProvider } from '../node_modules/typescript-styled-plugin/lib/_virtual-document-provider';
-import { LanguageService } from 'vscode-html-languageservice';
+import { LanguageService } from 'vscode-nornj-languageservice';
 import { getDocumentRegions } from './embeddedSupport';
 
 export class VirtualDocumentProvider implements StyledVirtualDocumentProvider {

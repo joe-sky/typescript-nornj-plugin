@@ -6,7 +6,7 @@
 import { StyledTemplateLanguageService } from 'typescript-styled-plugin/lib/api';
 import { decorateWithTemplateLanguageService, Logger, TemplateSettings } from 'typescript-template-language-service-decorator';
 import * as ts from 'typescript/lib/tsserverlibrary';
-import { getLanguageService, LanguageService as HtmlLanguageService } from 'vscode-html-languageservice';
+import { getLanguageService, LanguageService as HtmlLanguageService } from 'vscode-nornj-languageservice';
 import { pluginName } from './config';
 import { Configuration } from './configuration';
 import HtmlTemplateLanguageService from './html-template-language-service';

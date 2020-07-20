@@ -10,7 +10,7 @@ import {
     LanguageService,
     TokenType,
     Range
-} from 'vscode-html-languageservice';
+} from 'vscode-nornj-languageservice';
 
 export interface LanguageRange extends Range {
     languageId: string | undefined;

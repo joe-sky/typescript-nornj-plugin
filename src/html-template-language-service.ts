@@ -6,7 +6,7 @@
 import { StyledTemplateLanguageService } from 'typescript-styled-plugin/lib/api';
 import { Logger, TemplateContext, TemplateLanguageService } from 'typescript-template-language-service-decorator';
 import * as ts from 'typescript/lib/tsserverlibrary';
-import { FoldingRange, LanguageService as HtmlLanguageService } from 'vscode-html-languageservice';
+import { FoldingRange, LanguageService as HtmlLanguageService } from 'vscode-nornj-languageservice';
 import * as vscode from 'vscode-languageserver-types';
 import { Configuration } from './configuration';
 import { getDocumentRegions } from './embeddedSupport';
@@ -271,7 +271,7 @@ export default class HtmlTemplateLanguageService implements TemplateLanguageServ
         const htmlDoc = this.htmlLanguageService.parseHTMLDocument(document);
         const htmlCompletions: HtmlCachedCompletionList = {
           type: 'html',
-          value: this.htmlLanguageService.doComplete(document, position, htmlDoc) || emptyCompletionList
+          value: this.htmlLanguageService.doComplete(document, position, htmlDoc) as vscode.CompletionList || emptyCompletionList
         };
         this._completionsCache.updateCached(context, position, htmlCompletions);
         return htmlCompletions;

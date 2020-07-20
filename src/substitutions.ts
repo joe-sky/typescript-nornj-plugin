@@ -1,5 +1,5 @@
 import { getTemplateSettings } from 'typescript-styled-plugin/lib/api';
-import { LanguageService } from 'vscode-html-languageservice';
+import { LanguageService } from 'vscode-nornj-languageservice';
 import { getDocumentRegions } from './embeddedSupport';
 import { VirtualDocumentProvider } from './virtual-document-provider';
 import { TemplateContext } from '../node_modules/typescript-template-language-service-decorator';
